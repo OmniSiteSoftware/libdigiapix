@@ -26,7 +26,7 @@ PYTHON_BIN ?= python3
 
 BINDINGS_DIR = bindings
 BUILD_DIR = build
-DIST_DIR = dist
+DESTDIR := /opt/dey/4.0-r4/ccmp15-dvk/sysroots/armv7at2hf-neon-dey-linux-gnueabi
 SRC_DIR = src
 HEADERS_DIR = $(SRC_DIR)/include
 HEADERS_PRIVATE_DIR = $(HEADERS_DIR)/private
