@@ -24,11 +24,18 @@
 #include <sys/ioctl.h>
 #include <unistd.h>
 
-#include "_common.h"
 #include "_log.h"
 #include "_network.h"
 #include "process.h"
 #include "wifi.h"
+
+#ifndef HOST_BUILD
+#include "_common.h"
+#else 
+#ifndef ARRAY_SIZE
+#define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
+#endif
+#endif
 
 #define CMD_GET_SECURITY	"nmcli -g IN-USE,SSID,SECURITY device wifi list ifname %s --rescan no | grep '*:' | awk -F'[:]' '{print $3}'"
 #define CMD_DEL_CONN		"nmcli connection delete %s"
